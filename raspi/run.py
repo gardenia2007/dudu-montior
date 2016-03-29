@@ -9,11 +9,11 @@ from fractions import Fraction
 # os.system(snapshot_param)
 def take_snapshot(night_mode=False):
 	with picamera.PiCamera() as camera:
-		camera.resolution = (1280, 720)
+		camera.resolution = (1920, 1080)
 		camera.start_preview()
 		if night_mode:
 			camera.framerate = Fraction(1, 6)
-			camera.shutter_speed = 3000000
+			camera.shutter_speed = 5000000
 			camera.exposure_mode = 'off'
 			camera.iso = 800
 			time.sleep(5)
@@ -42,7 +42,7 @@ if __name__ == "__main__":
 	else:
 		night_mode = True
 
-	night_mode = False
+	# night_mode = False
 	take_snapshot(night_mode)
 
 	# genreate time key
